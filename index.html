@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Śledzenie przesyłki</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+        #tracker-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        input[type="button"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        p.note {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="tracker-container">
+        <h2>Śledzenie przesyłki</h2>
+        <p>Wpisz poniżej numer śledzenia, który otrzymałeś od nas po złożeniu zamówienia.</p>
+        <input maxlength="50" id="YQNum" type="text" placeholder="Wprowadź numer przesyłki">
+        <br>
+        <input value="Śledź przesyłkę" type="button" onclick="doTrack()">
+        <p class="note">Jeśli numer nie działa, napisz do nas: <a href="mailto:info@caselynn.shop">info@caselynn.shop</a></p>
+    </div>
+    <div id="YQContainer" style="margin-top: 30px;"></div>
+
+    <script type="text/javascript" src="//www.17track.net/externalcall.js"></script>
+    <script type="text/javascript">
+        function doTrack() {
+            var num = document.getElementById("YQNum").value;
+            if (num === "") {
+                alert("Wprowadź numer przesyłki!");
+                return;
+            }
+            YQV5.trackSingle({
+                YQ_ContainerId: "YQContainer",
+                YQ_Height: 560,
+                YQ_Fc: "0",
+                YQ_Lang: "pl",
+                YQ_Num: num
+            });
+        }
+    </script>
+</body>
+</html>
