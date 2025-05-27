@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -9,7 +8,7 @@
             font-family: Arial, sans-serif;
             text-align: center;
             padding: 40px;
-            background-color: #f9f9f9;
+            background-color: white; /* Zmienione z f9f9f9 na białe */
         }
         #tracker-container {
             max-width: 500px;
@@ -43,9 +42,13 @@
             color: #007bff;
             text-decoration: none;
         }
+        #YQContainer {
+            background: transparent; /* Dodane dla osadzonego kontenera */
+        }
     </style>
 </head>
 <body>
+
     <div id="tracker-container">
         <h2>Śledzenie przesyłki</h2>
         <p>Wpisz poniżej numer śledzenia, który otrzymałeś od nas po złożeniu zamówienia.</p>
@@ -54,6 +57,7 @@
         <input value="Śledź przesyłkę" type="button" onclick="doTrack()">
         <p class="note">Jeśli numer nie działa, napisz do nas: <a href="mailto:info@caselynn.shop">info@caselynn.shop</a></p>
     </div>
+
     <div id="YQContainer" style="margin-top: 30px;"></div>
 
     <script type="text/javascript" src="//www.17track.net/externalcall.js"></script>
@@ -73,5 +77,6 @@
             });
         }
     </script>
+
 </body>
 </html>
