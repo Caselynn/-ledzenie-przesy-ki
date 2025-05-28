@@ -1,118 +1,66 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Śledzenie przesyłki</title>
-    <style>
-        /* Wyśrodkowanie całej zawartości na stronie */
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Pełna wysokość ekranu */
-            margin: 0; /* Usunięcie domyślnych marginesów */
-            font-family: Arial, sans-serif;
-            background-color: white; /* Zmiana tła na białe */
-        }
-        
-        /* Styl kontenera śledzenia */
-        #tracker-container {
-            max-width: 500px;
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        
-        /* Wyśrodkowanie iframe */
-        #YQContainer {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            height: 100%;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Śledzenie przesyłki</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
 
-        iframe {
-            display: block;
-            margin: auto;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border: none;
-            background: transparent !important;
-        }
-        
-        /* Pola tekstowe i przyciski */
-        input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-        }
+    .tracker-container {
+      max-width: 500px;
+      width: 100%;
+      padding: 30px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      text-align: center;
+    }
 
-        input[type="button"] {
-            padding: 10px 20px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        
-        /* Dodatkowe style */
-        p.note {
-            margin-top: 10px;
-            font-size: 14px;
-            color: #555;
-        }
-        
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-    </style>
+    input, button {
+      padding: 10px;
+      margin-top: 15px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    a {
+      display: block;
+      margin-top: 20px;
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-
-    <div id="tracker-container">
-        <h2>Śledzenie przesyłki</h2>
-        <p>Wpisz poniżej numer śledzenia, który otrzymałeś od nas po złożeniu zamówienia.</p>
-        <input maxlength="50" id="YQNum" type="text" placeholder="Wprowadź numer przesyłki">
-        <br>
-        <input value="Śledź przesyłkę" type="button" onclick="doTrack()">
-        <p class="note">Jeśli numer nie działa, napisz do nas: <a href="mailto:info@caselynn.shop">info@caselynn.shop</a></p>
-    </div>
-
-    <div id="YQContainer">
-        <iframe src="https://caselynn.github.io/-ledzenie-przesy-ki/"
-                width="1000"
-                height="600"
-                frameborder="0"
-                allowtransparency="true">
-        </iframe>
-    </div>
-
-    <script type="text/javascript" src="//www.17track.net/externalcall.js"></script>
-    <script type="text/javascript">
-        function doTrack() {
-            var num = document.getElementById("YQNum").value;
-            if (num === "") {
-                alert("Wprowadź numer przesyłki!");
-                return;
-            }
-            YQV5.trackSingle({
-                YQ_ContainerId: "YQContainer",
-                YQ_Height: 560,
-                YQ_Fc: "0",
-                YQ_Lang: "pl",
-                YQ_Num: num
-            });
-        }
-    </script>
-
+  <div class="tracker-container">
+    <h2>Śledzenie przesyłki</h2>
+    <p>Wpisz poniżej numer śledzenia, który otrzymałeś od nas po złożeniu zamówienia.</p>
+    <input type="text" placeholder="Wprowadź numer przesyłki">
+    <button>Śledź przesyłkę</button>
+    <a href="mailto:info@caselynn.shop">Jeśli numer nie działa, napisz do nas: info@caselynn.shop</a>
+  </div>
 </body>
 </html>
